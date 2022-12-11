@@ -15,9 +15,9 @@ function isRoot() {
 
 # Tambahan
 cd /usr/bin
-wget -O addwg "https://raw.githubusercontent.com/khairunisya/ssh/main/wireguard/addwg.sh"
-wget -O delwg "https://raw.githubusercontent.com/khairunisya/ssh/main/wireguard/delwg.sh"
-wget -O xpwgr "https://raw.githubusercontent.com/khairunisya/ssh/main/wireguard/xpwg"
+wget -q --show-progress -O addwg "https://raw.githubusercontent.com/khairunisya/ssh/main/wireguard/addwg.sh"
+wget -q --show-progress -O delwg "https://raw.githubusercontent.com/khairunisya/ssh/main/wireguard/delwg.sh"
+wget -q --show-progress -O xpwgr "https://raw.githubusercontent.com/khairunisya/ssh/main/wireguard/xpwg"
 chmod +x addwg
 chmod +x delwg
 chmod +x xpwgr
@@ -86,7 +86,7 @@ function installQuestions() {
 	echo ""
 	echo "Okay, that was all I needed. We are ready to setup your WireGuard server now."
 	echo "You will be able to generate a client at the end of the installation."
-	read -n1 -r -p "Press any key to continue..."
+	
 }
 
 function installWireGuard() {
@@ -143,6 +143,11 @@ function installWireGuard() {
     SERVER_PUB_NIC="$(ip -4 route ls | grep default | grep -Po '(?<=dev )(\S+)' | head -1)"
 	SERVER_PRIV_KEY=$(wg genkey)
 	SERVER_PUB_KEY=$(echo "${SERVER_PRIV_KEY}" | wg pubkey)
+	SERVER_WG_NIC=wg0
+	SERVER_WG_IPV4=10.66.66.1
+    SERVER_WG_IPV6=fd42:42:42::1
+	SERVER_PORT=51820
+	CLIENT_DNS_1=1.1.1.1
 
 	# Save WireGuard settings
 	echo "SERVER_PUB_IP=${SERVER_PUB_IP}
