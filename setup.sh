@@ -20,41 +20,6 @@ spinner()
     done
     printf "    \b\b\b\b"
 }
-permission () {
-    echo -e "$text┌─────────────────────────────────────────────────┐${NC}"
-    echo -e "$text│${NC} ${bg}                 • License Key  •              ${NC} $text│$NC"
-    echo -e "$text└─────────────────────────────────────────────────┘${NC}"
-    echo -e "$text┌─────────────────────────────────────────────────┐${NC}"
-    read -s -rp "  License Key : " -e pp
-    echo ""
-    MYIP=$(curl -s https://checkip.amazonaws.com/);
-    echo ""
-    echo -e "${LIGHT}Checking You License${NC}"
-    sleep 2
-    clear
-    MYIP=$(curl -sS ipv4.icanhazip.com)
-    IZIN=$( curl -s https://createssh.net/pass/licensey | grep $pp )
-    if [ "$pp" = "$IZIN" ]; then
-    echo ""
-    echo "Thanks You For Use Script Auto Install Myteam"
-    echo "Do Not Forget Support Us Jrtunnel"
-    echo "See You"
-    echo ""
-    echo -e "${green}License OK Installer${NC}"
-    echo ""
-    sleep 2
-    clear
-    echo ""
-    else
-    echo ""
-    echo -e "License not Valid Installer Script!"
-    echo -e "Only For Team Jrtunnel"
-    echo ""
-    sleep 2
-    clear
-    permission
-    fi
-}
 cd /root
 #System version number
 if [ "${EUID}" -ne 0 ]; then
@@ -121,8 +86,6 @@ green='\E[40;1;42m'
 text='\033[0;34m'
 bg='\E[40;1;44m'
 NC='\e[0m'
-
-permission
 
 ################ INSTALLER #################
 domain()
