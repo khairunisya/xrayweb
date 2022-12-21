@@ -211,7 +211,7 @@ wget -q --show-progress https://raw.githubusercontent.com/khairunisya/xrayweb/ma
 #SELESAI
 echo -e "${green}Installer SlowDNS Servers${NC}";
 sleep 1
-wget -q --show-progress https://github.com/khairunisya/xrayweb/raw/main/slowdns/install-sldns.sh && chmod +x install-sldns.sh && ./install-sldns.sh
+#wget -q --show-progress https://github.com/khairunisya/xrayweb/raw/main/slowdns/install-sldns.sh && chmod +x install-sldns.sh && ./install-sldns.sh
 #SELESAI
 echo -e "${green}Installer All Services Successfully!${NC}";
 sleep 1
